@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import FavoriteButton from "../component/FavoriteButton";
+import FlipCard from "../component/FlipCard";
 
 const DetailContainer = styled.div`
   display: flex;
@@ -11,8 +13,12 @@ const DetailContainer = styled.div`
   font-size: 1.2rem;
   border: 1px solid #f1f1f1;
   border-radius: 10px;
+  height: 60%;
+  background-color: #fff;
+  padding: 20px;
   h3 {
     font-size: 2rem;
+    margin-bottom: 20px;
   }
   img {
     width: 200px;
@@ -35,9 +41,9 @@ export default function Detail() {
 
   return (
     <DetailContainer>
-      <h3>{pokemon.name}</h3>
+      <h3>{pokemon.name}<FavoriteButton pokemonId={Number(pokemonId)}/></h3>
       <div>{pokemon.description}</div>
-      <img src={pokemon.front} alt={pokemon.name} />
+      <FlipCard front={pokemon.front} back={pokemon.back} />
     </DetailContainer>
   );
 }

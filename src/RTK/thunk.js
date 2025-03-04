@@ -4,7 +4,6 @@ export const fetchMultiplePokemonById = createAsyncThunk(
   "pokemon/fetchMultiplePokemonById",
   async (maxPokemonId) => {
     const numberArray = Array.from({ length: maxPokemonId }, (_, i) => i + 1);
-    console.log(numberArray);
 
     const fetchAPI = async (pokemonId) => {
       const response = await fetch(
